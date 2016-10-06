@@ -47,7 +47,7 @@ namespace PatternMaching
             Console.ReadKey();
         }
 
-        public static void CalculateBodyFatCotacao(BodyFatSkinfoldProtocol cotacao)
+        public static void CalculateBodyFatCotacao(BodyFatSkinfoldProtocol bodyFatProtocol)
         {
             //double valorCotacao = cotacao match
             //              (
@@ -58,15 +58,23 @@ namespace PatternMaching
 
 
             decimal bodyFat = 0;
-            if (cotacao is Guedes protocol)
+            if (bodyFatProtocol is Guedes protocol)
+            {
                 bodyFat = protocol.Height;
-            //else if (cotacao is CotacaoEuro euro)
-            //    bodyFat = euro.ValorCotacao;
+            }
+                
+            else if (bodyFatProtocol is Faulkner protocol)
+                bodyFat = protocol.Height;
+            else if (bodyFatProtocol is PollockFive protocol)
+                bodyFat = protocol.Height;
+            else if (bodyFatProtocol is PollockSeven protocol)
+                bodyFat = protocol.Height;
+            else if (bodyFatProtocol is Yuhasz protocol)
+                bodyFat = protocol.Height;
+            else if (bodyFatProtocol is Lohman protocol)
+                bodyFat = protocol.Height;
 
-            //Console.WriteLine(new String('-', 40));
-            //Console.WriteLine($"Data: {cotacao.DataCotacao:dd/MM/yyyy}");
-            //Console.WriteLine($"Sigla: {cotacao.SiglaMoeda}");
-            //Console.WriteLine($"Moeda: {cotacao.NomeMoeda}");
+            Console.WriteLine($"Used Protocol : {bodyFatProtocol.ProtocolName}");
             Console.WriteLine($"Valor: {bodyFat:0.0000}");
         }
 
