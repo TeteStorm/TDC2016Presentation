@@ -13,8 +13,9 @@ namespace Tuples
         static void Main(string[] args)
         {
             PrintDesconstruction();
-           // PrintProtocolDetais();
-           // PrintNamedProtocolDetais();
+            PrintProtocolDetais();
+            PrintNamedProtocolDetais();
+            Console.ReadLine();
         }
 
         // Tuples and Desconstruction
@@ -78,10 +79,16 @@ namespace Tuples
         // Automaticamente chama o método ou extension method Desconstruct implementado no objeto
         public static void PrintDesconstruction()
         {
+            
             var guedes = new Guedes() { Height = 167, Weight = 58 };
-            (var name, var description) = guedes;
+            (var name, var description) = guedes; //calls method Deconstruct
             Console.WriteLine($"Protocol name: {name}");
             Console.WriteLine($"Protocol description: {description}");
+
+
+            string x;
+            guedes.Deconstruct(out x);
+            Console.WriteLine($"Protocol and description: {x}");
         }
     }
 }

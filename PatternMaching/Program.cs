@@ -17,15 +17,7 @@ namespace PatternMaching
             Console.ReadKey();
         }
 
-        public void PrintProtocolName(object o)
-        {
-            if (o is null) return;     // constant pattern "null"
-            if (!(o is int i))
-            { Console.WriteLine(new string('*', i)); }
-            return; // type pattern "int i"
-           
-        }
-
+  
 
         public static void CalculateBodyFat(BodyFatSkinfoldProtocol bodyFatProtocol)
         {

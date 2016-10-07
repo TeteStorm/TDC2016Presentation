@@ -34,15 +34,21 @@ namespace RefReturns
         static void Main(string[] args)
         {
             BodyWeight myWeight = new BodyWeight(58);
+
+            // Mostra valor atual e incrementa 2kg usando a maneira padrão de incrementar 
+            // que é método Increment
             Console.WriteLine("Current weight value: ");
             Console.WriteLine(myWeight.GetWeightValue());
             Console.WriteLine("Increment 2 kilogramans using the public method Increment");
             myWeight.Increment(2);
+
             Console.WriteLine("Current weight value after increment: ");
             Console.WriteLine(myWeight.GetWeightValue());
-            //get a the weight property by reference through method ref int GetWeight()
+           
+            // Pega a propriedade disponibilizada por referência 
+            // e modifica diretamente a propriedade interna do objeto
             ref int teste = ref myWeight.GetWeight();
-            // increment 3 kilogramans using the directly the weight property got by ref int GetWeight() method");
+            // incrementa em 1 kg utilizando diretamente a propriedade weight obtida através do método ref int GetWeight();
             teste++;
             Console.WriteLine("Current weight value after external increment: ");
             Console.WriteLine(myWeight.GetWeightValue());
