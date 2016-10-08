@@ -62,7 +62,7 @@ namespace PatternMaching
             else if (bodyFatProtocol is PollockSeven protocol)
             {
                 //{ ... }
-                bodyFat = protocol.Height;
+                bodyFat = protocol.Height + protocol.Chest;
             }
             else if (bodyFatProtocol is Yuhasz protocol)
             {
