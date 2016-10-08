@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TuplesReconstructionOutVar"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{C007666B-FFAB-4AD7-B157-487198245B75}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalFunctions", "LocalFunctions\LocalFunctions.csproj", "{479822E7-7E34-456F-814E-31FB89270778}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{C007666B-FFAB-4AD7-B157-487198245B75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C007666B-FFAB-4AD7-B157-487198245B75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C007666B-FFAB-4AD7-B157-487198245B75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{479822E7-7E34-456F-814E-31FB89270778}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{479822E7-7E34-456F-814E-31FB89270778}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{479822E7-7E34-456F-814E-31FB89270778}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{479822E7-7E34-456F-814E-31FB89270778}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

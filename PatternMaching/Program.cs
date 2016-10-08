@@ -12,7 +12,7 @@ namespace PatternMaching
 
         static void Main(string[] args)
         {
-           
+            PrintRoules(null);
 
             Console.ReadKey();
         }
@@ -62,7 +62,7 @@ namespace PatternMaching
             else if (bodyFatProtocol is PollockSeven protocol)
             {
                 //{ ... }
-                bodyFat = protocol.Height;
+                bodyFat = protocol.Height + protocol.Chest;
             }
             else if (bodyFatProtocol is Yuhasz protocol)
             {
@@ -87,13 +87,17 @@ namespace PatternMaching
             {
                 case Faulkner faulkner when faulkner.Age > 18:
                     Console.WriteLine($"Used Protocol Formule : {bodyFatProtocol.FormuleDescription}");
+                    Console.WriteLine($"Abs : {bodyFatProtocol.Tricep}");
                     break;
                 case Guedes guedes:
                     Console.WriteLine(guedes.FormuleDescription);
-                    break;
-
+                    
+                     break;
                 default:
                     break;
+
+                case null:
+                    throw new ArgumentNullException(nameof(bodyFatProtocol));
             }
         }
 

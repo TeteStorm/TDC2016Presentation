@@ -16,6 +16,7 @@ namespace Tuples
             PrintDesconstruction();
             PrintProtocolDetais();
             PrintNamedProtocolDetais();
+
             var tupleLiteralIncrement = IncrementWeight(new Guedes() { Weight = 50, TotalBodyFat = 22 }, new List<decimal>() { 1.3M, 1.8M, 3.2M, 2, 4 });
             Console.WriteLine($"Current weigth: {tupleLiteralIncrement.currentWeight}");
             Console.WriteLine($"Month increase average: {tupleLiteralIncrement.average}");
@@ -53,6 +54,26 @@ namespace Tuples
             return returnValues;
         }
 
+        //Tuple literal
+        // Retorna 2 valores dentro de um elemento literal de tupla de maneira nomeada que podem ser acessados atráves dos nomes das propriedades 
+        static (decimal currentWeight, decimal average) IncrementWeight(BodyFatSkinfoldProtocol bodyFatProtocol, IEnumerable<decimal> monthKilogramIncrease)
+        {
+            var res = (currentWeight: 0M, average: 0M);
+            var totalIncrease = 0M;
+            var returnValues = (Weight: bodyFatProtocol.Weight, TotalBodyFat: bodyFatProtocol.BodyFatPercent, Protocol: bodyFatProtocol.ProtocolName);
+            foreach (var item in monthKilogramIncrease)
+            {
+                returnValues.Weight += item;
+                res.currentWeight = returnValues.Weight;
+                totalIncrease += item;
+                res.average = totalIncrease / monthKilogramIncrease.Count();
+
+            }
+
+            Console.WriteLine($"Weight:{returnValues.Weight} Total Body Fat:{returnValues.TotalBodyFat} Protocol:{returnValues.Protocol}");
+            return res;
+        }
+
 
         //Desconstruction
         static void PrintNamedProtocolDetais()
@@ -77,28 +98,7 @@ namespace Tuples
 
         }
 
-        //Tuple literal
-        // Retorna 2 valores dentro de um elemento literal de tupla de maneira nomeada que podem ser acessados atráves dos nomes das propriedades 
-        static (decimal currentWeight, decimal average) IncrementWeight(BodyFatSkinfoldProtocol bodyFatProtocol, IEnumerable<decimal> monthKilogramIncrease)
-        {
-            var res = (currentWeight:0M,  average:0M);
-            var totalIncrease = 0M;
-            var returnValues = (Weight: bodyFatProtocol.Weight, TotalBodyFat: bodyFatProtocol.BodyFatPercent, Protocol: bodyFatProtocol.ProtocolName);
-            foreach (var item in monthKilogramIncrease)
-            {
-                returnValues.Weight += item;
-                res.currentWeight = returnValues.Weight;
-                totalIncrease += item;
-                res.average = totalIncrease / monthKilogramIncrease.Count();
-
-            }
-
-            Console.WriteLine($"Weight:{returnValues.Weight} Total Body Fat:{returnValues.TotalBodyFat} Protocol:{returnValues.Protocol}");
-            return res;
-        }
-
-
-        // Deconstruct
+      
         // Automaticamente chama o método ou extension method Desconstruct implementado no objeto
         public static void PrintDesconstruction()
         {
@@ -108,7 +108,7 @@ namespace Tuples
             Console.WriteLine($"Protocol name: {name}");
             Console.WriteLine($"Protocol description: {description}");
 
-
+            //maneira antiga
             string x;
             guedes.Deconstruct(out x);
             Console.WriteLine($"Protocol and description: {x}");
