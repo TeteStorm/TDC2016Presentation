@@ -44,6 +44,9 @@ namespace Domain
         public decimal Weight { get; set; }
 
         public decimal Tricep { get; set; }
+
+        public abstract void CalculateBodyFatPercent();
+
     }
 
     public class Guedes : BodyFatSkinfoldProtocol
@@ -74,10 +77,43 @@ namespace Domain
         }
 
         public decimal Subscapular { get; set; }
+
+        public override void CalculateBodyFatPercent()
+        {
+            if(Age <= 0)
+                throw new NullReferenceException("Age cannot be null");
+            if (Weight <= 0)
+                throw new NullReferenceException("Weight cannot be null");
+            if (Tricep <= 0)
+                throw new NullReferenceException("Tricep cannot be null");
+            if (Subscapular <= 0)
+                throw new NullReferenceException("Subscapular cannot be null");
+
+            void CalculateBodyFat()
+            {
+                this.BodyFatPercent = Age + Weight / Tricep + Subscapular;
+            }
+            CalculateBodyFat();
+        }
+
+        public  void CalculateBodyFatMass(decimal weight, decimal height)
+        {
+            if (weight <= 0)
+                throw new NullReferenceException("weight cannot be null");
+            if (height <= 0)
+                throw new NullReferenceException("height cannot be null");
+
+            void CalculateBodyFat()
+            {
+                this.TotalBodyFat = weight + (height * height) /2;
+            }
+            CalculateBodyFat();
+        }
     }
 
     public class Faulkner : Guedes
     {
+
         public override string FormuleDescription
         {
             get
@@ -103,6 +139,10 @@ namespace Domain
         }
         public decimal Abdominal { get; set; }
         public decimal Suprailiac { get; set; }
+        public override void CalculateBodyFatPercent()
+        {
+            base.CalculateBodyFatPercent();
+        }
     }
 
     public class PollockFive : BodyFatSkinfoldProtocol
@@ -136,6 +176,11 @@ namespace Domain
         public decimal Chest { get; set; }
 
         public decimal Thigh { get; set; }
+
+        public override void CalculateBodyFatPercent()
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class PollockSeven : PollockFive
@@ -166,6 +211,11 @@ namespace Domain
         public decimal Midaxilary { get; set; }
 
         public decimal Subscapular { get; set; }
+
+        public override void CalculateBodyFatPercent()
+        {
+            base.CalculateBodyFatPercent();
+        }
     }
 
     public class Yuhasz : Faulkner
@@ -194,6 +244,10 @@ namespace Domain
             }
         }
         public decimal Chest { get; set; }
+        public override void CalculateBodyFatPercent()
+        {
+            base.CalculateBodyFatPercent();
+        }
     }
 
     public class Lohman : BodyFatSkinfoldProtocol
@@ -225,5 +279,10 @@ namespace Domain
 
 
         public decimal Thigh { get; set; }
+
+        public override void CalculateBodyFatPercent()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatternMaching", "PatternMa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefReturns", "RefReturns\RefReturns.csproj", "{4331BCD1-C3D7-41C2-BBCB-2CBD480CF4E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tuples", "Tuples\Tuples.csproj", "{9F9E1CCA-DECE-4B30-98D6-A5AFE67CAFDE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TuplesReconstructionOutVar", "Tuples\TuplesReconstructionOutVar.csproj", "{9F9E1CCA-DECE-4B30-98D6-A5AFE67CAFDE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{C007666B-FFAB-4AD7-B157-487198245B75}"
 EndProject
